@@ -33,6 +33,8 @@ exports.createBooking = async (req, res) => {
         
         res.status(201).json({ message: "Booking created successfully", id: savedBooking._id, confirmationCode: randomCode });
 
+        if(process.env.NODE_ENV === "test") return;
+        
         let restaurant = validate.restaurant;
         let table = validate.table;
 
@@ -62,7 +64,7 @@ exports.getUserBookings = async (req, res) => {
 
         const bookings = await Booking.find({ userId })
             .populate('userId', 'name email phone')
-            .sort({ bookingDate: -1 })
+            .sort({ bookingTime: -1 })
             .populate('restaurantId', 'name address cuisineType tables')
             .lean();
 

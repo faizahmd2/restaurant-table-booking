@@ -1,7 +1,15 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    email: { type: String, required: true, unique: true },
+    email: { type: String, unique: true,
+        validate: {
+            validator: function(v) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            },
+            message: "Please enter a valid email"
+        },
+        required: [true, "Email required"]
+    },
     password: { type: String, required: true },
     name: { type: String },
     phone: { type: String },

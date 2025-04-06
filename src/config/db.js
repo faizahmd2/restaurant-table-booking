@@ -12,4 +12,4 @@ const connectMongo = async () => {
   logger.info('MongoDB connection established successfully');
 };
 
-connectMongo();
+module.exports = connectMongo;

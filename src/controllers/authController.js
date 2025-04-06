@@ -74,6 +74,7 @@ const registerUser = async (req, res) => {
     
     res.status(201).json({
       user: {
+        id: user._id,
         email: user.email
       },
       accessToken

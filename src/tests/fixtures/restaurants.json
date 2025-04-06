@@ -1,0 +1,40 @@
+[
+    {
+        "name": "The Tandoori Flame",
+        "address": { "street": "MG Road", "city": "Delhi", "state": "Delhi", "pincode": "110001" },
+        "cuisineType": "North Indian",
+        "capacity": 50,
+        "tables": [
+            { "tableId": "T1", "capacity": 4 },
+            { "tableId": "T2", "capacity": 6 }
+        ],
+        "status": 1,
+        "created": "2025-04-06T05:35:35.883Z",
+        "updated": "2025-04-06T05:35:35.883Z"
+    },
+    {
+        "name": "Curry Junction",
+        "address": { "street": "Brigade Road", "city": "Bangalore", "state": "Karnataka", "pincode": "560001" },
+        "cuisineType": "South Indian",
+        "capacity": 40,
+        "tables": [
+            { "tableId": "T1", "capacity": 2 },
+            { "tableId": "T2", "capacity": 4 }
+        ],
+        "status": 0,
+        "created": "2025-04-06T05:35:35.883Z",
+        "updated": "2025-04-06T05:35:35.883Z"
+    },
+    {
+        "name": "Masala Magic",
+        "address": { "street": "FC Road", "city": "Pune", "state": "Maharashtra", "pincode": "411004" },
+        "cuisineType": "Maharashtrian",
+        "capacity": 35,
+        "tables": [
+            { "tableId": "T1", "capacity": 4 }
+        ],
+        "status": 1,
+        "created": "2025-04-06T05:35:35.883Z",
+        "updated": "2025-04-06T05:35:35.883Z"
+    }
+]

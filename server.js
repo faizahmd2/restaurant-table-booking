@@ -11,6 +11,7 @@ const path = require('path');
 const morgan = require('morgan');
 const loadRoutes = require('./src/routes');
 const logger = require('./src/utils/logger');
+const connectMongo = require('./src/config/db');
 
 logger.info(`Environment: ${process.env.NODE_ENV}`);
 
@@ -19,7 +20,7 @@ global.appRoot = path.resolve(__dirname);
 const app = express();
 
 app.use(helmet());
-app.use(morgan((tokens, req, res) => {
+process.env.NODE_ENV !== 'test' && app.use(morgan((tokens, req, res) => {
   return [
     tokens.method(req, res),
     tokens.url(req, res),
@@ -56,9 +57,6 @@ loadRoutes(app);
 
 logger.info('✓ All routes loaded');
 
-// start database connection
-require('./src/config/db');
-
 app.get('/', (req, res) => {
     res.send('Booking App service is running');
 });
@@ -68,7 +66,13 @@ app.all(/(.*)/, (req, res) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 2900;
-app.listen(PORT, () => {
-  logger.info(`Server is running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  const PORT = process.env.PORT || 2900;
+  connectMongo().then(() => {
+    app.listen(PORT, () => {
+      logger.info(`🚀 Server is running on port ${PORT}`);
+    });
+  });
+}
+
+module.exports = app;
