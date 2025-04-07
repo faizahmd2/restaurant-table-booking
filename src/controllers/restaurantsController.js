@@ -24,7 +24,7 @@ var controllers = {
 
 
             let finalRestaurants = restaurants.map(restaurant => {
-                let tables = restaurant.tables.filter(table => table.status === 1);
+                let tables = restaurant.tables.filter(table => table.status === 1).map(table => ({tableId: table.tableId,capacity: table.capacity}));
 
                 return {
                     id: restaurant._id,
@@ -34,8 +34,7 @@ var controllers = {
                     tables: tables,
                     capacity: restaurant.capacity
                 };
-            }
-            );
+            });
 
             res.json({
                 page,

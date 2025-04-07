@@ -4,6 +4,8 @@ const User = require('../models/User');
 const moment = require('moment');
 const notificationService = require('../services/notificationService');
 const logger = require('../utils/logger');
+const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Types;
 
 exports.createBooking = async (req, res) => {
     try {
@@ -62,7 +64,7 @@ exports.getUserBookings = async (req, res) => {
     try {
         const userId = req.user.id;
 
-        const bookings = await Booking.find({ userId })
+        const bookings = await Booking.find({ userId }) // status: { $ne: 'canceled' }
             .populate('userId', 'name email phone')
             .sort({ bookingTime: -1 })
             .populate('restaurantId', 'name address cuisineType tables')
@@ -76,6 +78,7 @@ exports.getUserBookings = async (req, res) => {
             let table = restaurant.tables.find(t => t.tableId === booking.tableId);
             return {
                 id: booking._id,
+                status: booking.status,
                 guestCount: booking.guestCount,
                 confirmationCode: booking.confirmationCode,
                 restaurantName: restaurant.name,
@@ -99,6 +102,11 @@ exports.cancelBooking = async (req, res) => {
     try {
         const { id: bookingId } = req.params;
         const userId = req.user.id;
+        // check if valid ObjectId
+        if (!ObjectId.isValid(bookingId)) {
+            return res.status(400).json({ message: 'Invalid booking ID' });
+        }
+
         logger.info('Canceling booking Request', { userId, bookingId });
         const booking = await Booking.findOne({ _id: bookingId, userId });
         if (!booking) return res.status(404).json({ message: 'Booking not found' });
