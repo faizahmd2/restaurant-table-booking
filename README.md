@@ -40,9 +40,7 @@ cd restaurant-table-booking
 npm install
 ```
 
----
-
-## 🔐 Environment Variables
+### 🔐 Environment Variables
 
 Create a .env.development file in the root directory:
 ```bash
