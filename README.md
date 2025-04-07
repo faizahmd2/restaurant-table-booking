@@ -40,7 +40,9 @@ cd restaurant-table-booking
 npm install
 ```
 
-### 🔐 Environment Variables
+---
+
+## 🔐 Environment Variables
 
 Create a .env.development file in the root directory:
 ```bash
@@ -96,6 +98,8 @@ npm run dev
 
 By default, the server runs on:  
 📍 `http://localhost:2900`
+
+---
 
 📫 API Documentation
 --------------------
