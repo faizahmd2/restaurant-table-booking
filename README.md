@@ -44,7 +44,6 @@ npm install
 
 Create a .env.development file in the root directory:
 ```bash
-NODE_ENV=development
 PORT=2900
 
 # JWT Auth
