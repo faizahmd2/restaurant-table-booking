@@ -40,7 +40,7 @@ cd restaurant-table-booking
 npm install
 ```
 
-🔐 **Environment Variables**
+### 🔐 Environment Variables
 
 Create a .env.development file in the root directory:
 ```bash
@@ -72,7 +72,7 @@ DAILY_SMS_LIMIT=50
 DAILY_EMAIL_LIMIT=50
 ```
 
-📝 **Notes:**
+### 📝 Notes:
 
 *   `MONGO_URI` is **required** to connect to MongoDB.
     
