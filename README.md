@@ -1,6 +1,6 @@
 # 🍽️ Restaurant Table Booking Backend
 
-A backend system built with Node.js that allows users to register, authenticate, browse restaurants, reserve tables, and manage their bookings.
+This is the backend for a Restaurant Table Booking system where users can sign up, log in, browse restaurants, and book or cancel table reservations. The project includes authentication, email/SMS notifications, and reservation management features.
 
 🔗 **Live Demo:** [https://your-live-demo-link.com](https://your-live-demo-link.com)
 
