@@ -53,7 +53,7 @@ const registerUser = async (req, res) => {
       return res.status(400).json({ message: 'Phone number must be 10 digits' });
     }
     
-    const existingUser = await User.findOne({ where: { email, status: 1 } });
+    const existingUser = await User.findOne({ email, status: 1 });
     if (existingUser) {
       return res.status(409).json({ message: 'User already exists' });
     }
