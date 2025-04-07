@@ -35,8 +35,8 @@ This is the backend for a Restaurant Table Booking system where users can sign u
 ### 📦 Installation
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/faizahmd2/restaurant-table-booking.git
+cd restaurant-table-booking
 npm install
 ```
 
