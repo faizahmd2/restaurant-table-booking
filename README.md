@@ -2,7 +2,7 @@
 
 This is the backend for a Restaurant Table Booking system where users can sign up, log in, browse restaurants, and book or cancel table reservations. The project includes authentication, email/SMS notifications, and reservation management features.
 
-🔗 **Live Demo:** [https://your-live-demo-link.com](https://your-live-demo-link.com)
+🔗 **Live Demo:** [https://restaurant-table-booking-ivsv.onrender.com](https://restaurant-table-booking-ivsv.onrender.com)
 
 
 ---
